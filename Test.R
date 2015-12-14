@@ -2,11 +2,11 @@
 install.packages("rgl")
 library("rgl")
 
-Soil.Teating <- read.csv("Soil Teating.csv")  # Test File
+Soil.Testing <- read.csv("Soil Testing.csv")  # Test File
 
-Wid <- max(Soil.Teating$Width) ## max vals
-Len <- max(Soil.Teating$Length)
-Depth <- max(Soil.Teating$Depth)
+Wid <- max(Soil.Testing$Width) ## max vals
+Len <- max(Soil.Testing$Length)
+Depth <- max(Soil.Testing$Depth)
 
 Fild <- NA  ## Setup blank Data
 Fild$pram <- list(1:Wid, 1:Len, 1:Depth)
@@ -17,10 +17,10 @@ for (Depth in Fild$pram[[3]]) {
 }
 
 # Make Data
-for (Rw in 1:nrow(Soil.Teating)) {
-  Fild$Silt[[Soil.Teating$Depth[Rw]]][Soil.Teating$Width[Rw], Soil.Teating$Length[Rw]] <- round(Soil.Teating$Silt[Rw]*255,0)
-  Fild$Sand[[Soil.Teating$Depth[Rw]]][Soil.Teating$Width[Rw], Soil.Teating$Length[Rw]] <- round(Soil.Teating$Sand[Rw]*255,0)
-  Fild$Clay[[Soil.Teating$Depth[Rw]]][Soil.Teating$Width[Rw], Soil.Teating$Length[Rw]] <- round(Soil.Teating$Clay[Rw]*255,0)
+for (Rw in 1:nrow(Soil.Testing)) {
+  Fild$Silt[[Soil.Testing$Depth[Rw]]][Soil.Testing$Width[Rw], Soil.Testing$Length[Rw]] <- round(Soil.Testing$Silt[Rw]*255,0)
+  Fild$Sand[[Soil.Testing$Depth[Rw]]][Soil.Testing$Width[Rw], Soil.Testing$Length[Rw]] <- round(Soil.Testing$Sand[Rw]*255,0)
+  Fild$Clay[[Soil.Testing$Depth[Rw]]][Soil.Testing$Width[Rw], Soil.Testing$Length[Rw]] <- round(Soil.Testing$Clay[Rw]*255,0)
 }
 
 with(Fild$pram, plot3d(x = Fild$pram[[1]], y = Fild$pram[[2]], Fild$pram[[3]] + 1, type = "n", size = 0, col = "red", cex = 2, box = FALSE, aspect = "iso")) # Makes a corectly sised plot
