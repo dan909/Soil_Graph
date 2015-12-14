@@ -4,11 +4,11 @@ library("rgl")
 
 Soil.Teating <- read.csv("Soil Teating.csv")  # Test File
 
-Wid <- max(Soil.Teating$Width)
+Wid <- max(Soil.Teating$Width) ## max vals
 Len <- max(Soil.Teating$Length)
 Depth <- max(Soil.Teating$Depth)
 
-Fild <- NA
+Fild <- NA  ## Setup blank Data
 Fild$pram <- list(1:Wid, 1:Len, 1:Depth)
 for (Depth in Fild$pram[[3]]) {
   Fild$Silt[Depth] <- list(matrix(0,max(Fild$pram[[1]]),max(Fild$pram[[2]])))
@@ -16,7 +16,7 @@ for (Depth in Fild$pram[[3]]) {
   Fild$Clay[Depth] <- list(matrix(0,max(Fild$pram[[1]]),max(Fild$pram[[2]])))
 }
 
-# put data bit in hear to assine %
+# Make Data
 for (Rw in 1:nrow(Soil.Teating)) {
   Fild$Silt[[Soil.Teating$Depth[Rw]]][Soil.Teating$Width[Rw], Soil.Teating$Length[Rw]] <- round(Soil.Teating$Silt[Rw]*255,0)
   Fild$Sand[[Soil.Teating$Depth[Rw]]][Soil.Teating$Width[Rw], Soil.Teating$Length[Rw]] <- round(Soil.Teating$Sand[Rw]*255,0)
