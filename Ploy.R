@@ -28,3 +28,4 @@ for (i in 1:length(Lst)) {
   sprites3d( Sub.Testing$Width, Sub.Testing$Length, Sub.Testing$Depth, color = Lst[[i]][2], lit = FALSE, alpha = .4,
                textype = "alpha", texture = system.file("textures/particle.png", package = "rgl") )
 }
+legend3d("bottom", legend = paste('Soil Type', c(lapply(Lst, `[[`, 1))), pch = 16, col = rainbow(3), cex=1, inset=c(0.02))
