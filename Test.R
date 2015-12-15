@@ -37,4 +37,4 @@ for (Len in Fild$pram[[1]]) {
   
 }
 ### expand window manually
-legend3d("bottom", legend = c('% Sand', '% Silt', '% Clay'), pch = 16, col = c("red", "green", "blue"), cex=1, inset=c(0.02))
+legend3d("bottom", legend = c('% Sand', '% Silt', '% Clay'), pch = 16, col = c("red", "green", "blue"), cex=.8, inset=c(0.0001))

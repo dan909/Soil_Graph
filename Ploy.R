@@ -30,4 +30,4 @@ for (i in 1:length(Lst)) {
                textype = "alpha", texture = system.file("textures/particle.png", package = "rgl") )
 }
 ### expand window manually
-legend3d("bottom", legend = paste('', c(lapply(Lst, `[[`, 1))), pch = 16, col = as.character(lapply(Lst, `[[`, 2)), cex=1, inset=c(0.02))
+legend3d("bottomright", legend = paste('', c(lapply(Lst, `[[`, 1))), pch = 16, col = as.character(lapply(Lst, `[[`, 2)), cex=0.6, inset=c(0.01))
