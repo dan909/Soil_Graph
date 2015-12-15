@@ -36,4 +36,4 @@ for (Len in Fild$pram[[1]]) {
   }
   
 }
-
+legend3d("bottom", legend = c('% Sand', '% Silt', '% Clay'), pch = 16, col = c("red", "green", "blue"), cex=1, inset=c(0.02))
