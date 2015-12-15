@@ -23,7 +23,7 @@ for (Rw in 1:nrow(Soil.Testing)) {
   Fild$Clay[[Soil.Testing$Depth[Rw]]][Soil.Testing$Width[Rw], Soil.Testing$Length[Rw]] <- round(Soil.Testing$Clay[Rw]*255,0)
 }
 
-with(Fild$pram, plot3d(x = Fild$pram[[1]], y = Fild$pram[[2]], Fild$pram[[3]] + 1, type = "n", size = 0, col = "red", cex = 2, box = FALSE, aspect = "iso")) # Makes a corectly sised plot
+with(Fild$pram, plot3d(x = Fild$pram[[1]], y = Fild$pram[[2]], Fild$pram[[3]] + 1, type = "n", size = 0, col = "red", cex = 2, box = FALSE, aspect = "iso")) # Makes a corectly sized plot
 planes3d(a = c(0,max(Fild$pram[[1]])), b = c(0,max(Fild$pram[[2]])), c = -1, d = max(Fild$pram[[3]]) + .5, col = "chocolate4", alpha = 0.8) # puts a soil top on it
 
 ## This last section can he run alone just to make cubes
@@ -36,4 +36,5 @@ for (Len in Fild$pram[[1]]) {
   }
   
 }
+### expand window manually
 legend3d("bottom", legend = c('% Sand', '% Silt', '% Clay'), pch = 16, col = c("red", "green", "blue"), cex=1, inset=c(0.02))
