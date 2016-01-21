@@ -9,6 +9,8 @@ pkgTest <- function(x)
 
 pkgTest("rgl") # install if nessesery
 
+# this code uses clouds and coluers them with spesific couluers dependent upon there preset listed vlaue
+
 Soil.Testing <- read.csv("Soil Testing.csv")
 
 Wid <- max(Soil.Testing$Width) ## max vals
@@ -31,6 +33,7 @@ planes3d(a = c(0,max(Fild$pram[[1]])), b = c(0,max(Fild$pram[[2]])), c = -1, d =
 
 Lst <- list(c("Sandy Clay", "red"), c("Clay", "goldenrod1"), c("Silty Clay", "darkslategray1"), c("Clay Loam", "olivedrab1"), c("Silty Clay Loam", "turquoise4"), c("Sandy Clay Loam", "tomato"), c("Sandy Loam", "thistle4"), c("Loamy Sand", "thistle2"), c("Sand", "tan1"), c("Medium Loam", "sienna2"), c("Silty Loam", "mediumseagreen"), c("Silt", "limegreen"))
 
+## This last section can he run alone just to make clouds
 for (i in 1:length(Lst)) {
   Sub.Testing <- Soil.Testing[Soil.Testing$Type == Lst[[i]][1], ] # Lst name
   sprites3d( Sub.Testing$Width, Sub.Testing$Length, Sub.Testing$Depth, color = Lst[[i]][2], lit = FALSE, alpha = .4,

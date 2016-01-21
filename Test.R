@@ -9,6 +9,9 @@ pkgTest <- function(x)
 
 pkgTest("rgl") # install if nessesery
 
+# this code uses cubes and coluers them with amounts of Red Green & Blue for each soil component
+
+
 Soil.Testing <- read.csv("Soil Testing.csv")  # Test File
 
 Wid <- max(Soil.Testing$Width) ## max vals
@@ -42,6 +45,7 @@ for (Len in Fild$pram[[1]]) {
     
   }
   
-}
+} ## to hear
+
 ### expand window manually
 legend3d("bottom", legend = c('% Sand', '% Silt', '% Clay'), pch = 16, col = c("red", "green", "blue"), cex=.8, inset=c(0.0001))
