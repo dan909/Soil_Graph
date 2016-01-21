@@ -1,6 +1,13 @@
+pkgTest <- function(x)
+{
+  if (!require(x, character.only = TRUE))
+  {
+    install.packages(x,dep=TRUE)
+    if(!require(x, character.only = TRUE)) stop("Package not found")
+  }
+}
 
-install.packages("rgl")
-library("rgl")
+pkgTest("rgl") # install if nessesery
 
 Soil.Testing <- read.csv("Soil Testing.csv")  # Test File
 
