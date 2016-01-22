@@ -9,14 +9,16 @@ pkgTest <- function(x)
 
 pkgTest("rgl") # install if nessesery
 
+Shape_Testing <- read.csv("Shape Testing.csv")  # Test File
 
-cols <- colorRampPalette(c("blue","yellow","red","purple"))(256)
-for (Len in Fild$pram[[1]]) {
-  for (Wid in Fild$pram[[2]]) {
-    for (Depth in Fild$pram[[3]]) {
-      shade3d( translate3d( scale3d( cube3d(col = cols[(1/((Len-1) + (Wid-1) + (Depth-1)))*256], alpha = 0.3), .5, .5, .5), Len, Wid, Depth ) )
-    }
-    
-  }
-  
-} ## to hear
+
+
+cols <- colorRampPalette(c("blue","yellow","red"))(256)
+
+for (Row in 1:nrow(Shape_Testing)) {
+  scail_temp <- round( ((Shape_Testing$TEMP[Row] / max(Shape_Testing$TEMP) ) * 256), digits = 1) # make whatever the max temp is 256 & round to int
+  X <- Shape_Testing$X[Row]
+  Y <- Shape_Testing$Y[Row]
+  Z <- Shape_Testing$Z[Row]
+  shade3d( translate3d( scale3d( cube3d(col = cols[scail_temp], alpha = 0.6), .3, .3, .3), X, Y, Z) )
+  } ## to hear
