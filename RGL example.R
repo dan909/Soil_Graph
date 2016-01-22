@@ -2,13 +2,15 @@ pkgTest <- function(x)
 {
   if (!require(x, character.only = TRUE))
   {
-    install.packages(x,dep=TRUE)
+    install.packages(x,dep = TRUE)
     if (!require(x, character.only = TRUE)) stop("Package not found")
   }
 }
 
+pkgTest("devtools") # install if nessesery
+#install_github("rgl", "trestletech", "js-class") # comment out when done
+#install_github("shinyRGL", "trestletech")
 pkgTest("rgl") # install if nessesery
-
 
 Shape_Testing <- read.csv("Shape Testing.csv")  # Test File
 
