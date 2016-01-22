@@ -9,6 +9,7 @@ pkgTest <- function(x)
 
 pkgTest("rgl") # install if nessesery
 
+
 Shape_Testing <- read.csv("Shape Testing.csv")  # Test File
 
 
@@ -22,3 +23,5 @@ for (Row in 1:nrow(Shape_Testing)) {
   Z <- Shape_Testing$Z[Row]
   shade3d( translate3d( scale3d( cube3d(col = cols[scail_temp], alpha = 0.6), .3, .3, .3), X, Y, Z) )
   } ## to hear
+
+legend3d("bottom", legend = c(paste0('<',max(Shape_Testing$TEMP),'c'), paste0('~',median(Shape_Testing$TEMP),'c'), paste0('>',min(Shape_Testing$TEMP),'c')), pch = 16, col = c("red", "yellow", "blue"), cex=.8, inset=c(0.0001))
